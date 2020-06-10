@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/task','TaskController@home');
+
+Route::middleware('throttle:2,1')->group(function () {
+    Route::get('/test',"TaskController@home");
+});
